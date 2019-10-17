@@ -43,7 +43,7 @@ function generatePalette(starterPalette){
         //above iterlation is assigning levels as arrays
         }
         for(let color of starterPalette.colors){
-            let scale = getScale(color.color, 10); //it give 10 colors from light to dark
+            let scale = getScale(color.color, 10).reverse(); //it give 10 colors from light to dark
             //above colors are already ordered. color1, color2, color3 (from light to dark)
             for(let i in scale){
                 newPalette.colors[levels[i]].push({
