@@ -14,3 +14,4 @@
 - rc-slider (slide bar)
 - material-ui (google's material design)
   @material-ui/core @material-ui/icons
+- react-router-dom
