@@ -9,5 +9,6 @@
 ![image](https://i.imgur.com/aFowgNg.png)
 
 # Libraries for this project.
+- react-copy-to-clipboard
 - 
-- 
+
