@@ -10,5 +10,5 @@
 
 # Libraries for this project.
 - react-copy-to-clipboard
-- 
+- chroma.js (To manipulate colors)
 
