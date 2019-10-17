@@ -7,3 +7,7 @@
 ![image](https://i.imgur.com/GM0etHA.png)
 ![image](https://i.imgur.com/QB2zRzf.png)
 ![image](https://i.imgur.com/aFowgNg.png)
+
+# Libraries for this project.
+- 
+- 
