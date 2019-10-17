@@ -12,3 +12,4 @@
 - react-copy-to-clipboard
 - chroma.js (To manipulate colors)
 - rc-slider (slide bar)
+- material-ui (google's material design)
