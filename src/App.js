@@ -27,6 +27,10 @@ class App extends Component {
                                   routeProps.match.params.id))}
               />}
           /> 
+        <Route exact 
+               path='/palette/:paletteId/:colorId' 
+               render={()=><h1>Single COlor Page</h1>}
+        />
 
       </Switch>
     );
