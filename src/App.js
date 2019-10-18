@@ -31,11 +31,5 @@ class App extends Component {
     );
   };
 };
-
-
-
-{/* <div>
-<Palette palette={generatePalette(seedColors[4])}/>
-</div> */}
-
+ 
 export default App;
