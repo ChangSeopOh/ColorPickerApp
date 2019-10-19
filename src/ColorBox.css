@@ -1,4 +1,4 @@
-.ColorBox{
+/* .ColorBox{
     width:20%;
     height:25%;
     margin: 0 auto;
@@ -9,8 +9,8 @@
 }
 .SingleColorPalette .ColorBox{
     height:50%;
-}
-
+} */
+/* 
 .ColorBox.go-back{
     background-color: black;
 }
@@ -34,16 +34,16 @@
     text-transform: uppercase;
     border: none;
     cursor: pointer;
-}
-.copy-button{
+} */
+/* .copy-button{
     opacity: 0;
 }
 
 .ColorBox:hover .copy-button{
    transition: 0.5s;
     opacity: 1;
-}
-
+} */
+/* 
 .box-content{
     position: absolute;
     width:100%;
@@ -54,8 +54,8 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     font-size:12px;
-}
-
+} */
+/* 
 .light-text{
     color:white;
 }
@@ -76,8 +76,8 @@
     text-align: center;
     line-height: 30px;
     text-transform: uppercase;
-}
-
+} */
+/* 
 .copy-overlay{
     opacity: 0;
     z-index: 0;
@@ -86,7 +86,7 @@
     transition:transform 0.6s ease-in-out;
 
     transform: scale(0.1);
-    /* this effect start at the center of box. */
+   
 }
 
 
@@ -95,7 +95,7 @@
     transform: scale(50);
     z-index: 10;
     position: absolute;
-}
+} 
 
 .copy-msg{
     position:fixed;
@@ -119,9 +119,8 @@
     z-index: 100; 
     transition: all 0.4s ease-in-out;
     transition-delay: 0.3s;
-    /* after showing copy-overlay then showing copy-msg. */
+   
 }
-
 
 .copy-msg h1{
     font-weight: 400;
@@ -137,3 +136,4 @@
     font-size:2rem;
     font-weight: 100;
 }
+*/
