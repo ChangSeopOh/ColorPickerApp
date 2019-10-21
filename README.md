@@ -8,6 +8,15 @@
 ![image](https://i.imgur.com/QB2zRzf.png)
 ![image](https://i.imgur.com/aFowgNg.png)
 
+# Features
+- SPA(Sing Page Application)
+- React, Hooks, Material UI
+- Dynamic Colors
+- Responsive Design
+- Drag and Drop
+- Drawer menu, Slide bar
+- JSS(It's more sustainable than CSS)
+
 # Libraries for this project.
 - react-copy-to-clipboard
 - chroma.js (To manipulate colors)
@@ -17,12 +26,4 @@
   @material-ui/core @material-ui/icons @material-ui/styles
 - react-router-dom
 - react-color (Color picker)
-- 
-
-# Features
-- SPA(Sing Page Application)
-- Dynamic Colors
-- Responsive Design
-- Drag and Drop
-- Drawer menu, Drag bar
-- JSS(It's more sustainable than CSS)
+- react-material-ui-form-validator
