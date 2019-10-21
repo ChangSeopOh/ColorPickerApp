@@ -16,10 +16,13 @@
 - material-ui (google's material design)
   @material-ui/core @material-ui/icons @material-ui/styles
 - react-router-dom
+- react-color (Color picker)
+- 
 
 # Features
 - SPA(Sing Page Application)
 - Dynamic Colors
 - Responsive Design
 - Drag and Drop
+- Drawer menu, Drag bar
 - JSS(It's more sustainable than CSS)
