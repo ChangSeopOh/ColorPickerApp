@@ -12,8 +12,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import {ChromePicker} from 'react-color';
 import Button from '@material-ui/core/Button';
-
-const drawerWidth = 400;
+// Using Hooks!
+const drawerWidth = 340;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -76,18 +76,23 @@ const useStyles = makeStyles(theme => ({
 function NewPaletteForm() {
   const classes = useStyles(); 
   const [open, setOpen] = React.useState(false);
+  const [color, updateColor]=React.useState("teal");
+  const [colors, updateColors]=React.useState(["purple","#e15764"]);
 
   const handleDrawerToggle = () => {
     setOpen(!open);
   };
+ 
+  const updateCurrentColor = (newColor) =>{
+    updateColor(newColor.hex);
+  };
 
-  // const handleDrawerOpen = () => {
-  //   setOpen(true);
-  // };
+  const addColor=()=>{
+    updateColors([...colors, color]);
+    //add Current Color
+  };
 
-  // const handleDrawerClose = () => {
-  //   setOpen(false);
-  // };
+
 
   return (
     <div className={classes.root}>
@@ -136,9 +141,13 @@ function NewPaletteForm() {
           <Button variant="contained" color="secondary">Clear Palette</Button>
           <Button variant="contained" color="primary">Random Color</Button>
         </div>
-        <ChromePicker color='purple' onChangeComplete={(newColor)=> console.log(newColor)}/>
-          
-          <Button variant="contained" color="primary">ADD Color</Button>
+        <ChromePicker color={color} onChange={updateCurrentColor}/>
+
+          <Button variant="contained" 
+                  color="primary" 
+                  style={{backgroundColor:color}}
+                  onClick={addColor}
+                  >ADD Color</Button>
         
     
         {/* Drawer menu */}
@@ -150,7 +159,11 @@ function NewPaletteForm() {
       >
         <div className={classes.drawerHeader} /> 
           {/* body */}
-         
+          <ul>
+            {colors.map(c=>(
+              <li style={{background:c}}>{c}</li>
+            ))}
+          </ul>
 
 
       </main>
