@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import Slider from 'rc-slider';
+import {Link} from 'react-router-dom';
+import {withStyles} from '@material-ui/styles';
 import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import Slider from 'rc-slider';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import MenuItem from '@material-ui/core/MenuItem';
+import styles from './styles/NavarStyles';
 import 'rc-slider/assets/index.css';
-import './Navber.css';
-import {Link} from 'react-router-dom';
+
+
+
+
 
 class Navbar extends Component {
     constructor(props){
@@ -26,18 +31,18 @@ class Navbar extends Component {
         this.setState({open:false});
     }
     render() {
-        const {level, changeLevel, showingAllColors} = this.props;
+        const {level, changeLevel, showingAllColors, classes} = this.props;
         const {format} = this.state;
         return (
-            <header className="Navbar">
-                <div className="logo">
+            <header className={classes.Navbar}>
+                <div className={classes.logo}>
                     <Link to="/">React Color Picker</Link>
                 </div>
                 {showingAllColors && (
-                    <div className="slider-container">
-                    <span className="">Level: {level}</span>
+                    <div>
+                    <span>Level: {level}</span>
 
-                        <div className="slider">
+                        <div className={classes.slider}>
                         <Slider 
                             defaultValue={level} 
                             min={100} 
@@ -50,7 +55,7 @@ class Navbar extends Component {
                 )}
           
 
-                <div className="select-container">
+                <div className={classes.selectContainer}>
                     <Select value={format} onChange={this.handleFormatChange}>
                         <MenuItem value="hex">HEX - #ffffff</MenuItem>
                         <MenuItem value="rgb">RGB rgb(255, 255, 255)</MenuItem>
@@ -62,7 +67,7 @@ class Navbar extends Component {
                     open={this.state.open}
                     autoHideDuration={2000}
                     message={<span id="message-id">Format Changed To {format.toUpperCase()}</span>}
-                    contentProps={{
+                    contentprops={{
                         "aria-describedby":"message-id"
                     }}    
                     onClose={this.closeSnackbar}
@@ -78,4 +83,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+export default withStyles(styles)(Navbar);

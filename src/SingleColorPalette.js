@@ -6,6 +6,7 @@ import PaletteFooter from './PaletteFooter';
 import {withStyles} from '@material-ui/styles';
 import styles from './styles/PaletteStyles';
 
+
 class SingleColorPalette extends Component {
     constructor(props){
         super(props);
