@@ -12,9 +12,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import {ChromePicker} from 'react-color';
 import Button from '@material-ui/core/Button';
-import DraggableColorBox from './DraggableColorBox';
+import DraggableColorList from './DraggableColorList';
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
-
+import {arrayMove} from 'react-sortable-hoc';
 import useToggle from './hooks/useToggle';
 import useInputState from './hooks/useInputState';
 ////////////////////////////////////////////////////////////
@@ -98,7 +98,7 @@ function NewPaletteForm(params) {
     };
     params.savePalette(newPalette); //callback parent's fn
     params.history.push("/");
-  } 
+  };
   
   const updateCurrentColor = (newColor) =>{
     updateColor(newColor.hex);
@@ -115,7 +115,12 @@ function NewPaletteForm(params) {
   const removeColor=(colorName)=>{
     updateColors(colors.filter(color=>color.name!==colorName));
 
-  }
+  };
+
+  const onSortEnd = ({oldIndex,newIndex})=>{
+    updateColors(arrayMove(colors,oldIndex,newIndex));
+  };
+
 
   useEffect(()=>{
       ValidatorForm.addValidationRule('isColorNameUnique', (value)=>{
@@ -171,9 +176,6 @@ function NewPaletteForm(params) {
               <Button type="submit" variant="contained" color="primary">Save Palette</Button>
             </ValidatorForm>
           
-          
-          
-
         </Toolbar>
       </AppBar>
       <Drawer
@@ -229,13 +231,12 @@ function NewPaletteForm(params) {
       >
         <div className={classes.drawerHeader} /> 
           {/* body */} 
-            {colors.map(color=>(
-              <DraggableColorBox 
-                    key={color.name} 
-                    color={color.color} 
-                    name={color.name}
-                    handleClick={()=>removeColor(color.name)}/>
-            ))}
+         <DraggableColorList 
+              colors={colors} 
+              removeColor={removeColor}
+              axis='xy'
+              onSortEnd={onSortEnd}
+          />
       </main>
     </div>
   );
