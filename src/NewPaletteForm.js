@@ -89,7 +89,7 @@ function NewPaletteForm(params) {
   const [colors, updateColors]= useState([{color:"blue",name:"blue"}]);
   const [newColorName, updateNewColorName, resetNewColorName] = useInputState("");
   
-  function handleSubmit(){
+  const handleSubmit= () =>{
     let newName= newPaletteName;
     const newPalette = {
       paletteName:newName,
@@ -99,7 +99,7 @@ function NewPaletteForm(params) {
     params.savePalette(newPalette); //callback parent's fn
     params.history.push("/");
   } 
- 
+  
   const updateCurrentColor = (newColor) =>{
     updateColor(newColor.hex);
   };
@@ -111,6 +111,11 @@ function NewPaletteForm(params) {
     resetNewColorName();
     //add Current Color  
   };
+
+  const removeColor=(colorName)=>{
+    updateColors(colors.filter(color=>color.name!==colorName));
+
+  }
 
   useEffect(()=>{
       ValidatorForm.addValidationRule('isColorNameUnique', (value)=>{
@@ -225,7 +230,11 @@ function NewPaletteForm(params) {
         <div className={classes.drawerHeader} /> 
           {/* body */} 
             {colors.map(color=>(
-              <DraggableColorBox key={color.name} color={color.color} name={color.name}/>
+              <DraggableColorBox 
+                    key={color.name} 
+                    color={color.color} 
+                    name={color.name}
+                    handleClick={()=>removeColor(color.name)}/>
             ))}
       </main>
     </div>
