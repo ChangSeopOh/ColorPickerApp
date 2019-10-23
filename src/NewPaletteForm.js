@@ -17,8 +17,9 @@ import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 import useToggle from './hooks/useToggle';
 import useInputState from './hooks/useInputState';
-
+////////////////////////////////////////////////////////////
 // Using Hooks!
+////////////////////////////////////////////////////////////
 const drawerWidth = 340;
 
 const useStyles = makeStyles(theme => ({
@@ -80,13 +81,23 @@ const useStyles = makeStyles(theme => ({
 
 
 
-function NewPaletteForm() {
+function NewPaletteForm(params) {
   const classes = useStyles(); 
   const [open, toggleDrawerBar] = useToggle(false);
   const [currentColor, updateColor]= useState("teal");
   const [colors, updateColors]= useState([{color:"blue",name:"blue"}]);
   const [newName, updateNewName, resetNewName] = useInputState("");
- 
+  
+  function handleSubmit(){
+    let newName="New Test Palette"
+    const newPalette = {
+      paletteName:newName,
+      id:newName.toLowerCase().replace(/ /g,"-"),
+      colors:colors
+    };
+    params.savePalette(newPalette); //callback parent's fn
+    params.history.push("/");
+  } 
  
   const updateCurrentColor = (newColor) =>{
     updateColor(newColor.hex);
@@ -112,13 +123,14 @@ function NewPaletteForm() {
         );
       });  
 
-  }, [newName,currentColor]);
+  }, [newName,currentColor,colors]);
   //When newName is changed only then excuted.
  
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
+      color="default"
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -137,6 +149,7 @@ function NewPaletteForm() {
           <Typography variant="h6" noWrap>
             Persistent drawer
           </Typography>
+          <Button variant="contained" color="primary" onClick={handleSubmit}>Save Palette</Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -193,7 +206,7 @@ function NewPaletteForm() {
         <div className={classes.drawerHeader} /> 
           {/* body */} 
             {colors.map(color=>(
-              <DraggableColorBox color={color.color} name={color.name}/>
+              <DraggableColorBox key={color.name} color={color.color} name={color.name}/>
             ))}
       </main>
     </div>
