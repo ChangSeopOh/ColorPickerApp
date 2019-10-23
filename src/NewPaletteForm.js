@@ -131,8 +131,12 @@ function NewPaletteForm(params) {
   const randomColors = ()=>{
     //pick random color from existing palettes
     const allColors = params.palettes.map(p=>p.colors).flat();
-    let number = Math.floor(Math.random() * allColors.length);
-    const randomColor = allColors[number];
+
+    const filteredArr = allColors.filter(c => !colors.includes(c));
+
+    let number = Math.floor(Math.random() * filteredArr.length);
+    const randomColor = filteredArr[number];
+
     updateColors([...colors, randomColor]);
 
     
