@@ -37,7 +37,7 @@ function ColorPickerForm(props) {
     
     const updateCurrentColor = (newColor) =>{
       updateColor(newColor.hex);
-        //   check hex, rgb, or rgba
+        //   check hex, rgb, or rgba later 
     };
 
 

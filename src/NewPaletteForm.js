@@ -83,13 +83,9 @@ function NewPaletteForm(params) {
   const [colors, updateColors]= useState(palettes[0].colors);
   const paletteIsFull =  colors.length>=maxColors;
 
-  const handleSubmit= (newName) =>{
-     
-    const newPalette = {
-      paletteName:newName,
-      id:newName.toLowerCase().replace(/ /g,"-"),
-      colors:colors
-    };
+  const handleSubmit= (newPalette) =>{
+    newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g,"-");
+    newPalette.colors = colors;
     params.savePalette(newPalette); //callback parent's fn
     params.history.push("/");
   };

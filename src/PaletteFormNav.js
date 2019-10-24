@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'; 
+import React from 'react'; 
 import {Link} from 'react-router-dom';
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -7,11 +7,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Button from '@material-ui/core/Button';
-import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
-import useInputState from './hooks/useInputState';
+import Button from '@material-ui/core/Button'; 
 import {makeStyles} from '@material-ui/core/styles';
+import PaletteMetaForm from './PaletteMetaForm';
+import useToggle from './hooks/useToggle';
+
 const drawerWidth = 340;
+
 
 const useStyles = makeStyles(theme => ({
     root:{
@@ -24,6 +26,7 @@ const useStyles = makeStyles(theme => ({
       }),
       flexDirection:"row",
       justifyContent:"space-between",
+      alignItems:"center", 
       height:"64px"
     },
     appBarShift: {
@@ -38,7 +41,13 @@ const useStyles = makeStyles(theme => ({
       marginRight: theme.spacing(2),
     },
     navBtns:{
-
+        marginRight:"1rem",
+        "& a":{
+            textDecoration:"none"
+        }
+    },
+    button:{
+        margin:"0 0.5rem"
     }
 
 }));
@@ -46,16 +55,8 @@ const useStyles = makeStyles(theme => ({
 function PaletteFormNav(props) {
     const classes = useStyles(); 
     const {open, handleSubmit,palettes, toggleDrawerBar} = props;
-    const [newPaletteName, updateNewPaletteName]= useInputState("");
-    
+    const [formShowing, toggleSaveForm]= useToggle(false);
 
-    useEffect(()=>{ 
-        ValidatorForm.addValidationRule('isPaletteNameUnique', ()=>{
-          return palettes.every(
-              ({paletteName}) => paletteName.toLowerCase() !== newPaletteName.toLowerCase()
-            );
-        });   
-    });
     
     return (
         <div className={classes.root}>
@@ -83,25 +84,26 @@ function PaletteFormNav(props) {
 
             </Toolbar>
             <div className={classes.navBtns}>
-                <ValidatorForm onSubmit={()=>handleSubmit(newPaletteName)}>
-                    <TextValidator 
-                        value={newPaletteName} 
-                        onChange={updateNewPaletteName}
-                        label="Palette Name"
-                        validators={["required", "isPaletteNameUnique"]}
-                        errorMessages={["Enter Palette Name", "Palette name must be unique."]}
-                        
-                        />
-                    <Button type="submit" variant="contained" color="primary">
-                        Save Palette
-                    </Button>
-                   
-                </ValidatorForm> 
                 <Link to='/'>
-                    <Button variant="contained" color="secondary">Go Back</Button>
+                    <Button 
+                        variant="contained" 
+                        color="secondary"
+                        className={classes.button}
+                    >Go Back</Button>
                 </Link>  
+                <Button 
+                    className={classes.button}
+                    variant="contained" 
+                    color="primary" 
+                    onClick={toggleSaveForm}>
+                Save
+                </Button>
             </div> 
-        </AppBar>
+        </AppBar> 
+        {formShowing &&(<PaletteMetaForm 
+                handleSubmit={handleSubmit} 
+                palettes={palettes}
+                toggleSaveForm={toggleSaveForm}/>)}  
         </div>
     )
 }
