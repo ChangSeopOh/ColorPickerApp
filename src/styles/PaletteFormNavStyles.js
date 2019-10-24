@@ -1,11 +1,18 @@
 import { makeStyles} from '@material-ui/core/styles';
 import {DRAWER_WIDTH} from '../contants.js'
+import sizes from './sizes.js';
+
 const drawerWidth = DRAWER_WIDTH;
 
 
 const useStyles = makeStyles(theme => ({
     root:{
-        display:"flex"
+        display:"flex",
+        "& h6":{ 
+            [sizes.down("xs")]:{ 
+              fontSize:"1rem"
+            } 
+        }
     },
     hide: {
       display: 'none',
@@ -26,19 +33,26 @@ const useStyles = makeStyles(theme => ({
       transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
-      }),
+      })
     },
     menuButton: {
-      marginRight: theme.spacing(2),
+      marginRight: theme.spacing(2)
     },
     navBtns:{
         marginRight:"1rem",
         "& a":{
             textDecoration:"none"
+        },
+        [sizes.down("xs")]:{ 
+          marginRight:"0.5rem"
         }
     },
     button:{
-        margin:"0 0.5rem"
+        margin:"0 0.5rem",
+        [sizes.down("xs")]:{
+          margin:"0 0.3rem",
+          padding:"0rem"
+        }
     }
 
 }));

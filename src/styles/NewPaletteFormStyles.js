@@ -1,5 +1,6 @@
 import {DRAWER_WIDTH} from '../contants.js'
 import { makeStyles} from '@material-ui/core/styles';
+import sizes from './sizes.js';
 const drawerWidth = DRAWER_WIDTH;
 
 const useStyles = makeStyles(theme => ({
@@ -8,12 +9,12 @@ const useStyles = makeStyles(theme => ({
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0,
+    flexShrink: 0 
   },
   drawerPaper: {
     width: drawerWidth,
     display:"flex",
-    alignItems:"center"
+    alignItems:"center" 
   },
   drawerHeader: {
     display: 'flex',
@@ -21,7 +22,10 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0, 1),
     width:"100%",
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-end', 
+    [sizes.down("sm")]:{ 
+      minHeight:"64px"
+    }
   },
   content: {
     flexGrow: 1,
@@ -31,7 +35,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: -drawerWidth,
+    marginLeft: -drawerWidth 
   },
   contentShift: {
     transition: theme.transitions.create('margin', {

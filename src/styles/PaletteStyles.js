@@ -1,3 +1,5 @@
+import sizes from './sizes.js';
+
 export default{
 
     Palette: {
@@ -36,7 +38,36 @@ export default{
             textTransform: "uppercase",
             border: "none",
             cursor: "pointer"
-        }
+        }, 
+        [sizes.down("lg")]:{ 
+            height: "33.33%",
+            width:"75%"
+        },
+        [sizes.down("md")]:{
+            height: "10%",
+            width:"100%"
+        },
+        [sizes.down("sm")]:{
+            height: "20%",
+            width:"50%"
+        },
+        [sizes.down("xs")]:{
+            height: "10%",
+            width:"100%"
+        } 
+
+        // [sizes.down("md")]:{
+        //     height: "10%",
+        //     width:"100%"
+        // },
+        // [sizes.down("sm")]:{
+        //     height: "20%",
+        //     width:"50%"
+        // },
+        // [sizes.down("xs")]:{
+        //     height: "10%",
+        //     width:"100%"
+        // } 
         
     } 
 

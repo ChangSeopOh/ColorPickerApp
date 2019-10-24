@@ -1,3 +1,5 @@
+import sizes from './sizes.js';
+
 export default{ 
     root:{
         backgroundColor:"skyblue",
@@ -11,7 +13,7 @@ export default{
         display:"flex",
         alignItems:"flex-start",
         flexDirection:"column",
-        flexWrap:"wrap" 
+        flexWrap:"wrap"  
     },
     nav:{
         display: "flex",
@@ -21,15 +23,22 @@ export default{
         alignItems: "center", 
         "& a":{
             color:"white"
-        }
-
+        } 
     },
     palettes: { 
         boxSizing:"border-box",
         width: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(3, 30%)",
-        gridGap:"5%"
+        gridGap:"2.5rem",
+        [sizes.down("md")]:{ 
+            gridGap:"1.5rem",
+            gridTemplateColumns: "repeat(2, 50%)"
+        },
+        [sizes.down("xs")]:{ 
+            gridGap:"1rem",
+            gridTemplateColumns: "repeat(1, 100%)"
+        }
 
     }
 }
