@@ -6,7 +6,7 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
-import {arrayMove} from 'react-sortable-hoc';
+import arrayMove from 'array-move';
 import useToggle from './hooks/useToggle';
 import DraggableColorList from './DraggableColorList';
 import ColorPickerForm from './ColorPickerForm';

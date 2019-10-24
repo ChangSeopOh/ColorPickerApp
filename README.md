@@ -26,4 +26,5 @@
 - react-color (Color picker)
 - react-material-ui-form-validator
 - react-sortable-hoc (Drag and Drop)
+  -> changed to array-move
 - emoji-mart
