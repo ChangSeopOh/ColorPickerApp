@@ -3,16 +3,16 @@ import bg from './bg.svg';
 
 export default{ 
     root:{ 
-        height: "100%",
+        height: "100vh",
         display:"flex",
         alignItems:"flex-start",
         justifyContent:"center",
         backgroundColor: "#e86187", 
         backgroundAttachment: "fixed",
         backgroundSize: "cover",
-        backgroundImage: `url(${bg})`,
+        backgroundImage: `url(${bg})`, 
         /* background by SVGBackgrounds.com */
-        overFlow:"scroll" 
+        overflow:"scroll" 
     },
     container:{
         width:"50%",
