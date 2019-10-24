@@ -14,6 +14,7 @@
 - Drag and Drop
 - Drawer menu, Slide bar
 - JSS(It's more sustainable than CSS)
+- WindowLocalStorage
 
 # Libraries for this project.
 - react-copy-to-clipboard
