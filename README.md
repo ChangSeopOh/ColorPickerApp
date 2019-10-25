@@ -29,6 +29,6 @@
 - react-sortable-hoc (Drag and Drop)
   -> changed to array-move
 - emoji-mart (Emoji)
-- react-transition-group (Css animation)
+- react-transition-group (CSS animation)
 
 - https://www.svgbackgrounds.com/ (SVG Background)

@@ -124,6 +124,7 @@ function NewPaletteForm(params) {
               removeColor={removeColor}
               axis='xy'
               onSortEnd={onSortEnd}
+              distance={20}
           />
       </main>
     </div>
