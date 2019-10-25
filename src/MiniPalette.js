@@ -2,17 +2,23 @@ import React from 'react';
 import {withStyles} from '@material-ui/styles';
 import styles from './styles/MiniPaletteStyles';
 import DeleteIcon from '@material-ui/icons/Delete';
-function MiniPalette(props){
-    const {classes, paletteName, emoji, colors, handleClick, openDialog, id} = props; //unique id
+
+//React.memo is same as PureComponent (not rerender unless changed.)
+const MiniPalette=React.memo((props)=>{
+    const {classes, paletteName, emoji, colors, goToPalette, openDialog, id} = props; //unique id
     const miniColorBoxes = colors.map(color=>(
         <div key={color.name} className={classes.miniColor} style={{backgroundColor:color.color}}></div>
     ));
 
+    const handleClick= ()=>{
+        goToPalette(id);
+    }
+
     const openDeletePalette = (e) =>{
         e.stopPropagation();//prevent previous event.(render to palette)
         openDialog(id);
-    };
-
+    };  
+    
     return(
         <div className={classes.root} onClick={handleClick}>
             <div className={classes.delete}>
@@ -25,6 +31,6 @@ function MiniPalette(props){
         
         </div>
     );
-}
+})
 
 export default withStyles(styles)(MiniPalette);
