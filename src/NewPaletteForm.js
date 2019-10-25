@@ -12,6 +12,8 @@ import DraggableColorList from './DraggableColorList';
 import ColorPickerForm from './ColorPickerForm';
 import PaletteFormNav from './PaletteFormNav';
 import styles from './styles/NewPaletteFormStyles.js';
+import seedColors from './seedColors';
+
 ////////////////////////////////////////////////////////////
 // Using Hooks!
 ////////////////////////////////////////////////////////////
@@ -22,7 +24,7 @@ function NewPaletteForm(params) {
   const {maxColors = 20, palettes} = params; //defaultProps
   const classes = styles(); 
   const [open, toggleDrawerBar] = useToggle(false);
-  const [colors, updateColors]= useState(palettes[0].colors);
+  const [colors, updateColors]= useState(seedColors[0].colors);
   const paletteIsFull =  colors.length>=maxColors;
 
   const handleSubmit= (newPalette) =>{
@@ -50,14 +52,24 @@ function NewPaletteForm(params) {
 
   const randomColors = ()=>{
     //pick random color from existing palettes
-    const allColors = palettes.map(p=>p.colors).flat();
-
+    const allColors = seedColors.map(p=>p.colors).flat();
     const filteredArr = allColors.filter(c => !colors.includes(c));
-
     let number = Math.floor(Math.random() * filteredArr.length);
     const randomColor = filteredArr[number];
-
     updateColors([...colors, randomColor]);
+
+    // const allColors = seedColors.map(p=>p.colors).flat();
+    // let rand;
+    // let randomColor;
+    // let isDuplicateColor=true;
+    // while(isDuplicateColor){
+    //   rand = Math.floor(Math.random() * allColors.length);
+    //   randomColor=allColors[rand];
+    //   isDuplicateColor = colors.some(
+    //       color=>color.name===randomColor.name
+    //   );
+    // }
+    // updateColors([...colors, randomColor]);
 
     
   };

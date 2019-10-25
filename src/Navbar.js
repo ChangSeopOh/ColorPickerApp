@@ -11,9 +11,6 @@ import styles from './styles/NavarStyles';
 import 'rc-slider/assets/index.css';
 
 
-
-
-
 class Navbar extends Component {
     constructor(props){
         super(props);
