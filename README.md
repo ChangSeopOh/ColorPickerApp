@@ -32,3 +32,8 @@
 - react-transition-group (CSS animation)
 
 - https://www.svgbackgrounds.com/ (SVG Background)
+
+
+
+
+# URL : https://colorpickerapp.herokuapp.com/
