@@ -25,9 +25,10 @@
   @material-ui/core @material-ui/icons @material-ui/styles
 - react-router-dom
 - react-color (Color picker)
-- react-material-ui-form-validator
+- react-material-ui-form-validator (validate duplicated or empty)
 - react-sortable-hoc (Drag and Drop)
   -> changed to array-move
-- emoji-mart
+- emoji-mart (Emoji)
+- react-transition-group (Css animation)
 
-- https://www.svgbackgrounds.com/
+- https://www.svgbackgrounds.com/ (SVG Background)
