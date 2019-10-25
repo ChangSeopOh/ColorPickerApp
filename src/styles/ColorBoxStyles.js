@@ -99,7 +99,7 @@ export default{
         zIndex: "10",
         position: "absolute"
     },
-    copyMessages:{
+    copyMessage:{
         position:"fixed",
         left:"0",
         right:"0",
@@ -131,7 +131,7 @@ export default{
             fontWeight: "100"
         }
     },
-    showMessages:{
+    showMessage:{
         opacity: "1",
         transform: "scale(1)",
         zIndex: "100",

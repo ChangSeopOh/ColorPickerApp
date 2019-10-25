@@ -19,6 +19,10 @@ export default{
         "& a":{
             textDecoration: "none",
             color:"black" 
+
+        },
+        [sizes.down("sm")]:{
+            paddingRight:"0"
         },
         [sizes.down("xs")]:{
             display:"none"
@@ -43,7 +47,7 @@ export default{
             marginLeft: "0px",
             marginTop:"-3px"
         },
-        [sizes.down("md")]:{
+        [sizes.down("sm")]:{
             width:"150px"
         }
     },
