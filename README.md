@@ -19,7 +19,7 @@
 # Libraries for this project.
 - react-copy-to-clipboard
 - chroma.js (To manipulate colors)
-  luminance(dynamic color)
+  luminance(dynamic color) 
 - rc-slider (slide bar)
 - material-ui (google's material design)
   @material-ui/core @material-ui/icons @material-ui/styles
